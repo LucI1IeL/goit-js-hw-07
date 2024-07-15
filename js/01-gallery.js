@@ -123,7 +123,7 @@ const createGallery = (galleryItems) => {
 };
 
 const photosMarkup = createGallery(galleryItems);
-console.log(photosMarkup);
+// console.log(photosMarkup);
 galleryList.insertAdjacentHTML("beforeend", photosMarkup);
 
 const handleGalleryClick = (event) => {
@@ -140,7 +140,7 @@ const handleGalleryClick = (event) => {
   instance.show();
 
   const handleOnEscKeyPress = (event) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" || event.key === "Backspace") {
       instance.close();
       window.removeEventListener("keydown", handleOnEscKeyPress);
     }

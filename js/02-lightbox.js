@@ -77,6 +77,7 @@ const createGallery = (el) => {
 };
 
 const photosMarkup = createGallery(galleryItems);
+console.log(photosMarkup);
 
 galleryList.insertAdjacentHTML("beforeend", photosMarkup);
 
