@@ -1,4 +1,3 @@
-import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 // 1. Import Photo Details:
@@ -24,27 +23,61 @@ import { galleryItems } from "./gallery-items.js";
 // 5. Initialize Lightbox Functionality:
 
 // Set up a lightbox feature for the gallery. This lightbox is activated when any link within the gallery is clicked. It has settings to show captions (using the alt text of the images), display captions at the bottom, and delay the appearance of captions by 250 milliseconds.
+// import { galleryItems } from "./gallery-items.js";
 
 // console.log(galleryItems);
+// const galleryList = document.querySelector(".gallery");
+// const createGallery = (el) => {
+//   return el
+//     .map(({ preview, original, description }) => {
+//       return `
+//     <li class="gallery__item">
+//       <a class="gallery__link" href="${original}">
+//         <img
+//           class="gallery__image"
+//           src="${preview}"
+//           data-source="${original}"
+//           alt="${description}"
+//         />
+//       </a>
+//     </li>`;
+//     })
+//     .join("");
+// };
+// const photosMarkup = createGallery(galleryItems);
+// galleryList.insertAdjacentHTML("beforeend", photosMarkup);
+
+// const lightbox = new SimpleLightbox(".gallery a", {
+//   captionsData: "alt",
+//   captionDelay: 250,
+//   captionPosition: "bottom",
+// });
+
+import { galleryItems } from "./gallery-items.js";
+
 const galleryList = document.querySelector(".gallery");
+
+// console.log(galleryItems);
 const createGallery = (el) => {
   return el
     .map(({ preview, original, description }) => {
       return `
-    <li class="gallery__item">
-      <a class="gallery__link" href="${original}">
+    <li>
+      <a href="${original}">
         <img
           class="gallery__image"
           src="${preview}"
-          data-source="${original}"
           alt="${description}"
+          data-source="${original}"
         />
       </a>
     </li>`;
     })
     .join("");
 };
+
 const photosMarkup = createGallery(galleryItems);
+
 galleryList.insertAdjacentHTML("beforeend", photosMarkup);
 
 const lightbox = new SimpleLightbox(".gallery a", {
